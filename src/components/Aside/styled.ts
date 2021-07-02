@@ -57,6 +57,17 @@ export const AsideBar = styled.aside`
         max-width: 30px;
         max-height: 30px;
       }
+
+      span {
+        opacity: 0;
+        transition: 0.2s all;
+        transform: translate(-20px, 0px);
+      }
+
+      span.active {
+        opacity: 1;
+        transform: translate(0px, 0px);
+      }
     }
   }
 `;

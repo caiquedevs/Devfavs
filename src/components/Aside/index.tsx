@@ -6,10 +6,13 @@ import database from "../../utils/database";
 import useQuery from "../../hooks/useQuery";
 
 import renderImage from "../../utils/renderImage";
+import filter from "../../utils/filter";
 
 export default function Aside(): ReactElement {
   const query = useQuery();
   const category = query.get("category");
+  const getFilters = filter();
+  const sites = getFilters.sitesByCategory(category!);
 
   return (
     <AsideBar>
@@ -21,6 +24,9 @@ export default function Aside(): ReactElement {
             <Link to={`/?category=${item.name}`}>
               <img src={renderImage(item.name)} alt="icon" />
               {item.name}
+              <span className={category === item.name ? "active" : ""}>
+                ({sites.length})
+              </span>
             </Link>
           </li>
         ))}

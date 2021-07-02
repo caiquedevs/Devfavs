@@ -53,11 +53,7 @@ export default function ListItems(): ReactElement {
   return (
     <Container showSearch={showSearch}>
       <div className="title-group">
-        <h1>
-          {category
-            ? `Favoritos de ${category} - ${sites.length}`
-            : `Todos favoritos - ${sites.length}`}
-        </h1>
+        <h1>{category ? category : `Todos favoritos - ${sites.length}`}</h1>
 
         <div>
           <input
